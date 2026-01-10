@@ -11,7 +11,16 @@ enum DivisionError {
 // TODO: Calculate `a` divided by `b` if `a` is evenly divisible by `b`.
 // Otherwise, return a suitable error.
 fn divide(a: i64, b: i64) -> Result<i64, DivisionError> {
-    todo!();
+    let result = a/b;
+
+    let divisible = match result {
+        Ok(value) => value,
+        Err(error) => match DivisionError.kind() {
+            DivisionError::DivideByZero => Err(DivideByZero),
+            DivisionError::IntegerOverflow => Err(IntegerOverflow),
+            DivisionError::NotDivisible => Err(NotDivisible),
+        }
+    }
 }
 
 // TODO: Add the correct return type and complete the function body.
