@@ -10,6 +10,17 @@ fn factorial(num: u64) -> u64 {
     // - additional variables
     // For an extra challenge, don't use:
     // - recursion
+    let mut result: u64 = 1;
+    let mut iterator: u64 = num;
+    if iterator < 2 {
+       result = 1;
+    } else {
+        while iterator >= 2 {
+            result *= iterator;
+            iterator -= 1;
+        }
+    }
+    result
 }
 
 fn main() {
